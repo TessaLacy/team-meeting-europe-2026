@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Avelacom – Europe Team Meeting 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --navy:      #0b1f3a;
+      --navy-mid:  #112b52;
+      --blue:      #0057b8;
+      --blue-br:   #0078e7;
+      --cyan:      #00aadc;
+      --cyan-lt:   #e0f6ff;
+      --white:     #ffffff;
+      --off-white: #f4f7fb;
+      --border:    #d6e4f5;
+      --gray:      #4a5568;
+      --lgray:     #718096;
+      --llgray:    #e2eaf4;
+      --green:     #0a6e4e;
+      --greenbg:   #edfaf4;
+      --gold:      #f5a623;
+      --goldbg:    #fff8e6;
+      --goldtxt:   #7a4f00;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--off-white);
+      color: #1a202c;
+    }
+
+    /* ─── NAV ─────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--navy);
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 36px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.28);
+      border-bottom: 2px solid var(--blue);
+    }
+
+    .nav-brand {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      letter-spacing: 2px;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+
+    .nav-brand .accent { color: var(--white); }
+
+    .nav-divider {
+      width: 1px;
+      height: 18px;
+      background: rgba(255,255,255,0.2);
+      margin: 0 14px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .nav-sub {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 1px;
+      font-weight: 500;
+      vertical-align: middle;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 4px;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 6px 15px;
+      border-radius: 4px;
+      transition: all 0.18s;
+      letter-spacing: 0.2px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    /* ─── HERO ────────────────────────────── */
+    #hero {
+      background: linear-gradient(160deg, #081729 0%, #0b2040 45%, #0d2e5e 100%);
+      padding: 80px 36px 88px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* grid overlay */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,120,231,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,120,231,0.07) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    /* glow orb */
+    #hero::after {
+      content: '';
+      position: absolute;
+      top: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(0,120,231,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner { position: relative; z-index: 1; }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,170,220,0.12);
+      border: 1px solid rgba(0,170,220,0.3);
+      border-radius: 20px;
+      padding: 5px 16px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 22px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 8px var(--cyan);
+    }
+
+    .hero-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .hero-title .accent { color: var(--cyan); }
+
+    .hero-sub {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 40px;
+      letter-spacing: 0.2px;
+    }
+
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 50px;
+    }
+
+    .hero-badge {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 6px;
+      padding: 9px 18px;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.82rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-badge .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 6px var(--cyan);
+      flex-shrink: 0;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn {
+      padding: 12px 30px;
+      border-radius: 5px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.18s;
+      display: inline-block;
+    }
+
+    .cta-primary {
+      background: var(--blue-br);
+      color: var(--white);
+      border: none;
+      box-shadow: 0 4px 18px rgba(0,120,231,0.4);
+    }
+
+    .cta-primary:hover {
+      background: #0089ff;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(0,120,231,0.5);
+    }
+
+    .cta-secondary {
+      background: transparent;
+      color: rgba(255,255,255,0.8);
+      border: 1.5px solid rgba(255,255,255,0.25);
+    }
+
+    .cta-secondary:hover {
+      border-color: rgba(255,255,255,0.6);
+      color: var(--white);
+    }
+
+    /* ─── SECTION WRAPPER ─────────────────── */
+    .section-wrapper {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.2px;
+    }
+
+    .section-subtitle {
+      font-size: 0.88rem;
+      color: var(--lgray);
+      margin-top: 6px;
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    /* ════════════════════════════════════════
+       SECTION 1 – CITY COMPARISON
+    ════════════════════════════════════════ */
+    #comparison { background: var(--off-white); }
+
+    /* TOP PICK */
+    .top-pick-card {
+      background: linear-gradient(130deg, var(--navy) 0%, var(--blue) 100%);
+      border-radius: 12px;
+      padding: 32px 36px;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      box-shadow: 0 10px 40px rgba(0,87,184,0.28);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 24px;
+      border: 1px solid rgba(0,170,220,0.2);
+    }
+
+    .top-pick-card::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 250px; height: 250px;
+      border-radius: 50%;
+      background: rgba(0,170,220,0.08);
+    }
+
+    .top-pick-card::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: 40%;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .pick-flag { font-size: 4.5rem; line-height: 1; flex-shrink: 0; }
+
+    .pick-info h2 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .pick-tagline { font-size: 0.88rem; opacity: 0.75; margin: 4px 0 18px; }
+
+    .pick-stats { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    .pick-stat {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 0.8rem;
+    }
+
+    .pick-stat strong { display: block; font-size: 1rem; font-weight: 700; }
+
+    .top-ribbon {
+      position: absolute;
+      top: 18px; right: 18px;
+      background: var(--cyan);
+      color: var(--navy);
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* CITY CARDS */
+    .city-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .city-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 24px;
+      box-shadow: 0 2px 16px rgba(11,31,58,0.08);
+      border: 1px solid var(--border);
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+
+    .city-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(11,31,58,0.13);
+    }
+
+    .card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .card-flag { font-size: 2rem; line-height: 1; }
+    .card-name { font-size: 1.05rem; font-weight: 700; color: var(--navy); }
+    .card-country { font-size: 0.74rem; color: var(--lgray); margin-top: 1px; }
+
+    .hotel-price-box {
+      background: var(--greenbg);
+      border-radius: 7px;
+      padding: 9px 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      border: 1px solid #c3e8d9;
+    }
+
+    .hp-label { font-size: 0.74rem; color: var(--gray); }
+    .hp-val   { font-size: 1.05rem; font-weight: 700; color: var(--green); }
+
+    .flights-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #a0aec0;
+      margin-bottom: 8px;
+    }
+
+    .flight-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0;
+      border-bottom: 1px solid #f4f7fb;
+      gap: 8px;
+    }
+
+    .flight-row:last-child { border-bottom: none; }
+    .fr-from { font-size: 0.79rem; color: var(--gray); font-weight: 500; }
+
+    .tag-direct  { background: #d1fae5; color: #065f46; font-size: 0.65rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
+    .tag-connect { background: #fef9c3; color: #854d0e; font-size: 0.65rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
+
+    .score-row { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
+    .score-lbl { font-size: 0.72rem; color: var(--lgray); width: 84px; flex-shrink: 0; }
+    .bar-wrap  { flex: 1; background: #e8f0fb; border-radius: 20px; height: 6px; overflow: hidden; }
+    .bar-fill  { height: 100%; border-radius: 20px; background: linear-gradient(90deg, var(--blue), var(--cyan)); }
+    .score-num { font-size: 0.72rem; font-weight: 700; color: var(--blue); width: 30px; text-align: right; }
+
+    /* SUMMARY TABLE */
+    .sum-table-wrap {
+      background: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 2px 16px rgba(11,31,58,0.08);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .sum-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+    .sum-table thead { background: var(--navy); color: var(--white); }
+    .sum-table thead th { padding: 13px 16px; text-align: left; font-weight: 600; font-size: 0.76rem; letter-spacing: 0.3px; }
+    .sum-table tbody tr:nth-child(even) { background: #f8fafd; }
+    .sum-table tbody tr:hover { background: var(--cyan-lt); }
+    .sum-table td { padding: 12px 16px; border-bottom: 1px solid #edf2f7; color: #2d3748; }
+    .sum-table td:first-child { font-weight: 600; }
+    .sum-table .rec-row td { background: #e8f2ff !important; }
+    .sum-table .rec-row td:first-child { color: var(--blue); }
+    .chk { color: #16a34a; }
+    .par { color: #ca8a04; }
+
+    /* ════════════════════════════════════════
+       SECTION 2 – NEIGHBORHOODS
+    ════════════════════════════════════════ */
+    #neighborhoods { background: var(--white); }
+
+    .city-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 9px 26px;
+      border-radius: 5px;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--gray);
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+
+    .tab-btn:hover { border-color: var(--blue); color: var(--blue); }
+
+    .tab-btn.active {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: var(--white);
+    }
+
+    .city-panel { display: none; animation: fadeIn 0.28s ease; }
+    .city-panel.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(7px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* CITY HERO BANNER */
+    .ch-banner {
+      border-radius: 12px;
+      padding: 26px 30px;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ch-banner::after {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .ch-brussels { background: linear-gradient(130deg, var(--navy) 0%, var(--blue) 100%); }
+    .ch-vienna   { background: linear-gradient(130deg, #1a1a4e 0%, #3b3b9e 100%); }
+    .ch-prague   { background: linear-gradient(130deg, #1a2e0a 0%, #2d6a1e 100%); }
+
+    .ch-flag { font-size: 3.5rem; line-height: 1; flex-shrink: 0; }
+    .ch-info h2 { font-family: 'Rajdhani', sans-serif; font-size: 1.45rem; font-weight: 700; letter-spacing: 0.3px; }
+    .ch-info .ch-sub { font-size: 0.83rem; opacity: 0.78; margin: 3px 0 12px; }
+    .ch-pills { display: flex; flex-wrap: wrap; gap: 7px; }
+    .ch-pill { background: rgba(255,255,255,0.13); border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; padding: 4px 12px; font-size: 0.74rem; font-weight: 500; }
+
+    /* PRICE GUIDE */
+    .price-guide { display: flex; gap: 12px; margin-bottom: 22px; flex-wrap: wrap; }
+
+    .price-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 13px 16px;
+      flex: 1;
+      min-width: 130px;
+      text-align: center;
+      box-shadow: 0 1px 8px rgba(11,31,58,0.05);
+    }
+
+    .pc-lbl  { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 4px; }
+    .pc-val  { font-size: 1.15rem; font-weight: 700; color: var(--navy); }
+    .pc-note { font-size: 0.66rem; color: var(--lgray); margin-top: 1px; }
+
+    /* HOOD GRID */
+    .hood-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(258px, 1fr)); gap: 14px; margin-bottom: 18px; }
+
+    .hood-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 18px 20px;
+      box-shadow: 0 2px 12px rgba(11,31,58,0.07);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--blue);
+      transition: transform 0.18s;
+    }
+
+    .hood-card:hover { transform: translateY(-2px); }
+    .hood-card.top   { border-left-color: var(--gold); }
+
+    .hood-card.brussels     { border-left-color: var(--blue-br); }
+    .hood-card.brussels.top { border-left-color: var(--cyan); }
+    .hood-card.vienna       { border-left-color: #5b5bbf; }
+    .hood-card.vienna.top   { border-left-color: var(--cyan); }
+    .hood-card.prague       { border-left-color: #2a8a3e; }
+    .hood-card.prague.top   { border-left-color: var(--cyan); }
+
+    .hh-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 5px; gap: 8px; }
+    .hh-name { font-size: 0.94rem; font-weight: 700; color: var(--navy); }
+    .hh-sub  { font-size: 0.71rem; color: var(--lgray); margin-top: 1px; }
+
+    .best-badge { background: var(--cyan-lt); color: var(--blue); font-size: 0.62rem; font-weight: 700; padding: 3px 9px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; border: 1px solid rgba(0,120,231,0.2); }
+
+    .hh-desc { font-size: 0.8rem; color: var(--gray); line-height: 1.62; margin: 7px 0 11px; }
+    .hh-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+
+    .ht { font-size: 0.66rem; font-weight: 600; padding: 3px 8px; border-radius: 4px; }
+    .ht-blue   { background: #dbeafe; color: #1d4ed8; }
+    .ht-cyan   { background: var(--cyan-lt); color: #0077aa; }
+    .ht-green  { background: var(--greenbg); color: var(--green); }
+    .ht-navy   { background: #e0e7f5; color: var(--navy); }
+    .ht-purple { background: #ede9fe; color: #5b21b6; }
+    .ht-teal   { background: #ccfbf1; color: #0f766e; }
+
+    /* TIP BOX */
+    .tip-box {
+      background: var(--cyan-lt);
+      border-left: 4px solid var(--cyan);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-top: 4px;
+    }
+
+    .tip-title { font-size: 0.67rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #0077aa; margin-bottom: 5px; }
+    .tip-body  { font-size: 0.8rem; color: var(--gray); line-height: 1.65; }
+
+    /* ─── FOOTER ──────────────────────────── */
+    footer {
+      background: var(--navy);
+      border-top: 2px solid var(--blue);
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 0.76rem;
+      letter-spacing: 0.2px;
+    }
+
+    footer strong { color: rgba(255,255,255,0.8); font-family: 'Rajdhani', sans-serif; font-size: 0.9rem; letter-spacing: 1px; }
+
+    /* ─── RESPONSIVE ──────────────────────── */
+    @media (max-width: 620px) {
+      .hero-title { font-size: 2.1rem; }
+      nav { padding: 0 16px; }
+      .nav-sub, .nav-divider { display: none; }
+      .nav-links a { padding: 5px 10px; font-size: 0.76rem; }
+      .pick-flag { font-size: 3rem; }
+      .pick-info h2 { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── STICKY NAV ─────────────────────────── -->
+<nav>
+  <div>
+    <span class="nav-brand">AVELA<span class="accent">COM</span></span>
+    <span class="nav-divider"></span>
+    <span class="nav-sub">EUROPE MEETING 2026</span>
+  </div>
+  <div class="nav-links">
+    <a href="#hero">Home</a>
+    <a href="#comparison">City Picks</a>
+    <a href="#neighborhoods">Where to Stay</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ──────────────────────────────── -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Avelacom Team Meeting · March 2026</div>
+    <p class="hero-sub">March 15–20, 2026 &nbsp;·&nbsp; City selection &amp; neighborhood guide</p>
+
+    <div class="hero-cta-row">
+      <a href="#comparison" class="cta-btn cta-primary">View City Picks</a>
+      <a href="#neighborhoods" class="cta-btn cta-secondary">Where to Stay</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SECTION 1 – CITY COMPARISON
+════════════════════════════════════════ -->
+<section id="comparison">
+  <div class="section-wrapper">
+    <div class="section-header">
+      <div class="section-eyebrow">Step 01 — City Selection</div>
+      <h2 class="section-title">Our Top Three Cities</h2>
+      <p class="section-subtitle">Shortlisted for affordability, flight convenience, and business readiness</p>
+    </div>
+
+    <div class="top-pick-card">
+      <div class="top-ribbon">TOP PICK</div>
+      <div class="pick-flag">🇧🇪</div>
+      <div class="pick-info">
+        <h2>Brussels, Belgium</h2>
+        <p class="pick-tagline">EU capital · Central Europe · Business-ready · Budget-friendly</p>
+        <div class="pick-stats">
+          <div class="pick-stat"><strong>~$91</strong>Avg. hotel/night</div>
+          <div class="pick-stat"><strong>~9–11 hrs</strong>From US cities</div>
+          <div class="pick-stat"><strong>~3 hrs</strong>From Istanbul</div>
+          <div class="pick-stat"><strong>~1h 20m</strong>From London</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="city-cards-grid">
+
+      <div class="city-card">
+        <div class="card-top">
+          <div class="card-flag">🇦🇹</div>
+          <div><div class="card-name">Vienna</div><div class="card-country">Austria · Central Europe</div></div>
+        </div>
+        <div class="hotel-price-box">
+          <span class="hp-label">🏨 Avg. Hotel/Night</span>
+          <span class="hp-val">~$90</span>
+        </div>
+        <div class="flights-label">Flights from each location</div>
+        <div class="flight-row"><span class="fr-from">Istanbul</span><span>~2h 40m <span class="tag-direct">Direct</span></span></div>
+        <div class="flight-row"><span class="fr-from">London</span><span>~2h 30m <span class="tag-direct">Direct</span></span></div>
+        <div class="flight-row"><span class="fr-from">Chicago</span><span>~10h <span class="tag-connect">Via hub</span></span></div>
+        <div class="flight-row"><span class="fr-from">St. Pete, FL</span><span>~12h <span class="tag-connect">Via hub</span></span></div>
+        <div class="score-row"><span class="score-lbl">Affordability</span><div class="bar-wrap"><div class="bar-fill" style="width:88%"></div></div><span class="score-num">9/10</span></div>
+        <div class="score-row"><span class="score-lbl">Connectivity</span><div class="bar-wrap"><div class="bar-fill" style="width:78%"></div></div><span class="score-num">8/10</span></div>
+      </div>
+
+      <div class="city-card">
+        <div class="card-top">
+          <div class="card-flag">🇨🇿</div>
+          <div><div class="card-name">Prague</div><div class="card-country">Czech Republic · Budget gem</div></div>
+        </div>
+        <div class="hotel-price-box">
+          <span class="hp-label">🏨 Avg. Hotel/Night</span>
+          <span class="hp-val">~$63</span>
+        </div>
+        <div class="flights-label">Flights from each location</div>
+        <div class="flight-row"><span class="fr-from">Istanbul</span><span>~3h <span class="tag-direct">Direct</span></span></div>
+        <div class="flight-row"><span class="fr-from">London</span><span>~2h <span class="tag-direct">Direct</span></span></div>
+        <div class="flight-row"><span class="fr-from">Chicago</span><span>~11h <span class="tag-connect">Via hub</span></span></div>
+        <div class="flight-row"><span class="fr-from">St. Pete, FL</span><span>~13h <span class="tag-connect">Via hub</span></span></div>
+        <div class="score-row"><span class="score-lbl">Affordability</span><div class="bar-wrap"><div class="bar-fill" style="width:97%"></div></div><span class="score-num">10/10</span></div>
+        <div class="score-row"><span class="score-lbl">Connectivity</span><div class="bar-wrap"><div class="bar-fill" style="width:68%"></div></div><span class="score-num">7/10</span></div>
+      </div>
+
+    </div>
+
+    <div class="sum-table-wrap">
+      <table class="sum-table">
+        <thead>
+          <tr>
+            <th>City</th>
+            <th>Avg. Hotel/Night</th>
+            <th>Direct from Chicago</th>
+            <th>Direct from Istanbul</th>
+            <th>Direct from London</th>
+            <th>Business Venues</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="rec-row">
+            <td>🇧🇪 Brussels ★</td>
+            <td>~$91</td>
+            <td><span class="chk">✔</span> United / Brussels Air</td>
+            <td><span class="chk">✔</span> Turkish Airlines</td>
+            <td><span class="chk">✔</span> 1h 20m</td>
+            <td><span class="chk">✔</span> Excellent</td>
+          </tr>
+          <tr>
+            <td>🇦🇹 Vienna</td>
+            <td>~$90</td>
+            <td><span class="par">~</span> Via hub</td>
+            <td><span class="chk">✔</span> Direct</td>
+            <td><span class="chk">✔</span> Direct</td>
+            <td><span class="chk">✔</span> Excellent</td>
+          </tr>
+          <tr>
+            <td>🇨🇿 Prague</td>
+            <td>~$63</td>
+            <td><span class="par">~</span> Via hub</td>
+            <td><span class="chk">✔</span> Direct</td>
+            <td><span class="chk">✔</span> Direct</td>
+            <td><span class="chk">✔</span> Good</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- ════════════════════════════════════════
+     SECTION 2 – NEIGHBORHOODS
+════════════════════════════════════════ -->
+<section id="neighborhoods">
+  <div class="section-wrapper">
+    <div class="section-header">
+      <div class="section-eyebrow">Step 02 — Where to Stay</div>
+      <h2 class="section-title">Best Neighborhoods</h2>
+      <p class="section-subtitle">Top areas for business travelers in each shortlisted city</p>
+    </div>
+
+    <div class="city-tabs">
+      <button class="tab-btn active" onclick="showTab('brussels', this)">🇧🇪 Brussels</button>
+      <button class="tab-btn" onclick="showTab('vienna', this)">🇦🇹 Vienna</button>
+      <button class="tab-btn" onclick="showTab('prague', this)">🇨🇿 Prague</button>
+    </div>
+
+    <!-- ── BRUSSELS ── -->
+    <div class="city-panel active" id="tab-brussels">
+      <div class="ch-banner ch-brussels">
+        <div class="ch-flag">🇧🇪</div>
+        <div class="ch-info">
+          <h2>Brussels, Belgium</h2>
+          <p class="ch-sub">EU capital · Compact &amp; walkable · Excellent business infrastructure</p>
+          <div class="ch-pills">
+            <span class="ch-pill">★ Top Recommendation</span>
+            <span class="ch-pill">~$91 avg/night</span>
+            <span class="ch-pill">Metro + tram connected</span>
+          </div>
+        </div>
+      </div>
+      <div class="flights-label" style="margin-bottom:12px">ESTIMATED HOTEL COSTS – MARCH 2026</div>
+      <div class="price-guide">
+        <div class="price-card"><div class="pc-lbl">Budget</div><div class="pc-val">$60–85</div><div class="pc-note">per night</div></div>
+        <div class="price-card"><div class="pc-lbl">Mid-Range</div><div class="pc-val">$90–160</div><div class="pc-note">per night</div></div>
+        <div class="price-card"><div class="pc-lbl">Business / 4★</div><div class="pc-val">$160–260</div><div class="pc-note">per night</div></div>
+      </div>
+      <div class="flights-label" style="margin-bottom:12px">TOP NEIGHBORHOODS</div>
+      <div class="hood-grid">
+        <div class="hood-card brussels top">
+          <div class="hh-top">
+            <div><div class="hh-name">European Quarter / Schuman</div><div class="hh-sub">Business district · East Brussels</div></div>
+            <span class="best-badge">Best for Business</span>
+          </div>
+          <p class="hh-desc">Home to the EU Parliament and NATO HQ. Purpose-built for business travelers — polished hotels and conference-ready facilities everywhere. Walking distance to metro line 1.</p>
+          <div class="hh-tags"><span class="ht ht-blue">Business Hotels</span><span class="ht ht-green">Quiet &amp; Safe</span><span class="ht ht-navy">Metro Line 1</span></div>
+        </div>
+        <div class="hood-card brussels">
+          <div class="hh-top"><div><div class="hh-name">Grand Place / Centre</div><div class="hh-sub">Historic center · Most central</div></div></div>
+          <p class="hh-desc">The geographic heart of Brussels, steps from the iconic Grand Place. Great restaurant variety and easy access to all neighborhoods. Ideal for exploring between meetings.</p>
+          <div class="hh-tags"><span class="ht ht-cyan">Most Central</span><span class="ht ht-purple">Great Dining</span><span class="ht ht-navy">All Transport Links</span></div>
+        </div>
+        <div class="hood-card brussels">
+          <div class="hh-top"><div><div class="hh-name">Sainte-Catherine</div><div class="hh-sub">Trendy · 5 min walk from center</div></div></div>
+          <p class="hh-desc">A charming, walkable neighborhood minutes from the Grand Place. Famous for seafood restaurants and boutique hotels. Lower tourist density with a high safety rating.</p>
+          <div class="hh-tags"><span class="ht ht-green">Boutique Hotels</span><span class="ht ht-purple">Seafood &amp; Dining</span><span class="ht ht-blue">Safe &amp; Walkable</span></div>
+        </div>
+      </div>
+      <div class="tip-box">
+        <div class="tip-title">Booking Tip</div>
+        <p class="tip-body">Check the EU Council calendar for summits around March 15–20 — hotel prices spike when sessions are in progress. Book early. European Quarter hotels often drop rates on weekends.</p>
+      </div>
+    </div>
+
+    <!-- ── VIENNA ── -->
+    <div class="city-panel" id="tab-vienna">
+      <div class="ch-banner ch-vienna">
+        <div class="ch-flag">🇦🇹</div>
+        <div class="ch-info">
+          <h2>Vienna, Austria</h2>
+          <p class="ch-sub">Imperial elegance · World-class transit · Strong Istanbul connection</p>
+          <div class="ch-pills">
+            <span class="ch-pill">~$90 avg/night</span>
+            <span class="ch-pill">U-Bahn subway</span>
+            <span class="ch-pill">Direct from Istanbul (2h 40m)</span>
+          </div>
+        </div>
+      </div>
+      <div class="flights-label" style="margin-bottom:12px">ESTIMATED HOTEL COSTS – MARCH 2026</div>
+      <div class="price-guide">
+        <div class="price-card"><div class="pc-lbl">Budget</div><div class="pc-val">$55–85</div><div class="pc-note">per night</div></div>
+        <div class="price-card"><div class="pc-lbl">Mid-Range</div><div class="pc-val">$90–150</div><div class="pc-note">per night</div></div>
+        <div class="price-card"><div class="pc-lbl">Business / 4★</div><div class="pc-val">$150–250</div><div class="pc-note">per night</div></div>
+      </div>
+      <div class="flights-label" style="margin-bottom:12px">TOP NEIGHBORHOODS</div>
+      <div class="hood-grid">
+        <div class="hood-card vienna top">
+          <div class="hh-top">
+            <div><div class="hh-name">Innere Stadt (1st District)</div><div class="hh-sub">Historic center · Business hub</div></div>
+            <span class="best-badge">Best for Business</span>
+          </div>
+          <p class="hh-desc">Vienna's geographic and business center. The Stephansdom, Hofburg Palace, and most major corporate offices are all here. Most 4-star and 5-star business hotels are in this district.</p>
+          <div class="hh-tags"><span class="ht ht-navy">Most Central</span><span class="ht ht-blue">Top Hotels</span><span class="ht ht-green">U-Bahn Access</span></div>
+        </div>
+        <div class="hood-card vienna">
+          <div class="hh-top"><div><div class="hh-name">Neubau (7th District)</div><div class="hh-sub">Creative district · Local vibe</div></div></div>
+          <p class="hh-desc">Vienna's coolest neighborhood — independent coffee shops, galleries, and excellent restaurants. Great mid-range hotels at lower prices than the 1st District. Connected by U3 metro.</p>
+          <div class="hh-tags"><span class="ht ht-purple">Arts &amp; Culture</span><span class="ht ht-teal">Great Cafes</span><span class="ht ht-blue">U3 Metro</span></div>
+        </div>
+        <div class="hood-card vienna">
+          <div class="hh-top"><div><div class="hh-name">Wieden (4th District)</div><div class="hh-sub">Quiet · Residential · Authentic</div></div></div>
+          <p class="hh-desc">A predominantly local neighborhood with very few tourists. Beautiful historic buildings and cozy cafes make it a great base for a working trip. Connected via U1, U2, and trams.</p>
+          <div class="hh-tags"><span class="ht ht-green">Local &amp; Authentic</span><span class="ht ht-teal">Budget-Friendly</span><span class="ht ht-navy">Multiple Trams</span></div>
+        </div>
+        <div class="hood-card vienna">
+          <div class="hh-top"><div><div class="hh-name">Mariahilf (6th District)</div><div class="hh-sub">Shopping &amp; dining · Walkable</div></div></div>
+          <p class="hh-desc">Mariahilferstrasse — Vienna's main shopping street — runs right through here. Tons of mid-range hotel options and walking distance to the major sights in the 1st District.</p>
+          <div class="hh-tags"><span class="ht ht-purple">Shopping Access</span><span class="ht ht-blue">Mid-Range Hotels</span><span class="ht ht-green">Walkable to Center</span></div>
+        </div>
+      </div>
+      <div class="tip-box">
+        <div class="tip-title">Booking Tip</div>
+        <p class="tip-body">Stay within the Gürtel (ring boulevard) — districts 1 through 9. The 6th or 7th districts offer great savings without sacrificing access. Vienna's U-Bahn is fast and clean, so a few stops from center is no hardship.</p>
+      </div>
+    </div>
+
+    <!-- ── PRAGUE ── -->
+    <div class="city-panel" id="tab-prague">
+      <div class="ch-banner ch-prague">
+        <div class="ch-flag">🇨🇿</div>
+        <div class="ch-info">
+          <h2>Prague, Czech Republic</h2>
+          <p class="ch-sub">Most affordable option · Stunning city · Direct from Istanbul &amp; London</p>
+          <div class="ch-pills">
+            <span class="ch-pill">~$63 avg/night</span>
+            <span class="ch-pill">Direct from Istanbul &amp; London</span>
+            <span class="ch-pill">Best value overall</span>
+          </div>
+        </div>
+      </div>
+      <div class="flights-label" style="margin-bottom:12px">ESTIMATED HOTEL COSTS – MARCH 2026</div>
+      <div class="price-guide">
+        <div class="price-card"><div class="pc-lbl">Budget</div><div class="pc-val">$35–60</div><div class="pc-note">per night</div></div>
+        <div class="price-card"><div class="pc-lbl">Mid-Range</div><div class="pc-val">$60–120</div><div class="pc-note">per night</div></div>
+        <div class="price-card"><div class="pc-lbl">Business / 4★</div><div class="pc-val">$120–200</div><div class="pc-note">per night</div></div>
+      </div>
+      <div class="flights-label" style="margin-bottom:12px">TOP NEIGHBORHOODS</div>
+      <div class="hood-grid">
+        <div class="hood-card prague top">
+          <div class="hh-top">
+            <div><div class="hh-name">Old Town (Staré Město)</div><div class="hh-sub">Historic center · Most walkable</div></div>
+            <span class="best-badge">Best for Business</span>
+          </div>
+          <p class="hh-desc">Walking distance to all major sights, restaurants, and the best business hotels. The Gothic and Baroque architecture of Old Town Square makes for unforgettable client dinners.</p>
+          <div class="hh-tags"><span class="ht ht-navy">Most Central</span><span class="ht ht-green">Best Hotels</span><span class="ht ht-teal">Walkable to All</span></div>
+        </div>
+        <div class="hood-card prague">
+          <div class="hh-top"><div><div class="hh-name">Vinohrady</div><div class="hh-sub">Residential · Artsy · Great dining</div></div></div>
+          <p class="hh-desc">Consistently rated Prague's most desirable neighborhood by locals. Art Nouveau buildings, the city's best cafes and restaurants. Metro connects to Old Town in minutes.</p>
+          <div class="hh-tags"><span class="ht ht-purple">Best Restaurants</span><span class="ht ht-blue">Metro Access</span><span class="ht ht-green">Residential Calm</span></div>
+        </div>
+        <div class="hood-card prague">
+          <div class="hh-top"><div><div class="hh-name">Malá Strana (Lesser Town)</div><div class="hh-sub">Romantic · Riverside · Quiet</div></div></div>
+          <p class="hh-desc">Directly below Prague Castle on the western Vltava bank. Charming baroque streets and views of Charles Bridge. Great boutique hotels at reasonable prices.</p>
+          <div class="hh-tags"><span class="ht ht-teal">Riverside Views</span><span class="ht ht-green">Boutique Hotels</span><span class="ht ht-navy">Tram Access</span></div>
+        </div>
+        <div class="hood-card prague">
+          <div class="hh-top"><div><div class="hh-name">Smíchov</div><div class="hh-sub">Modern · Riverside · Practical</div></div></div>
+          <p class="hh-desc">Up-and-coming district with excellent shopping and riverside restaurants. Newer hotel stock at very competitive prices — popular with business travelers wanting modern amenities.</p>
+          <div class="hh-tags"><span class="ht ht-blue">Modern Hotels</span><span class="ht ht-green">Best Value</span><span class="ht ht-teal">River Access</span></div>
+        </div>
+      </div>
+      <div class="tip-box">
+        <div class="tip-title">Booking Tip</div>
+        <p class="tip-body">Mid-March is shoulder season in Prague — low prices and high availability. Vinohrady is 20–30% cheaper than Old Town with comparable quality. Note: Chicago and St. Pete, FL will need connecting flights via Frankfurt or Amsterdam.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────── -->
+<footer>
+  <strong>AVELACOM</strong> &nbsp;·&nbsp; Europe Team Meeting 2026 &nbsp;·&nbsp;
+  Travel data based on March 2026 estimates. Always verify current rates and availability.
+</footer>
+
+<script>
+  function showTab(city, btn) {
+    document.querySelectorAll('.city-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + city).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.getAttribute('id'); });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
