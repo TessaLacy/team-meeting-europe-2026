@@ -97,7 +97,6 @@
       position: relative;
       overflow: hidden;
     }
-    /* grid overlay */
     #hero::before {
       content: '';
       position: absolute;
@@ -107,7 +106,6 @@
         linear-gradient(90deg, rgba(0,120,231,0.07) 1px, transparent 1px);
       background-size: 48px 48px;
     }
-    /* glow orb */
     #hero::after {
       content: '';
       position: absolute;
@@ -261,7 +259,6 @@
        SECTION 1 – CITY COMPARISON
     ════════════════════════════════════════ */
     #comparison { background: var(--off-white); }
-    /* TOP PICK */
     .top-pick-card {
       background: linear-gradient(130deg, var(--navy) 0%, var(--blue) 100%);
       border-radius: 12px;
@@ -321,7 +318,6 @@
       letter-spacing: 1px;
       text-transform: uppercase;
     }
-    /* CITY CARDS */
     .city-cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -381,7 +377,6 @@
     .bar-wrap  { flex: 1; background: #e8f0fb; border-radius: 20px; height: 6px; overflow: hidden; }
     .bar-fill  { height: 100%; border-radius: 20px; background: linear-gradient(90deg, var(--blue), var(--cyan)); }
     .score-num { font-size: 0.72rem; font-weight: 700; color: var(--blue); width: 30px; text-align: right; }
-    /* SUMMARY TABLE */
     .sum-table-wrap {
       background: var(--white);
       border-radius: 10px;
@@ -435,7 +430,6 @@
       from { opacity: 0; transform: translateY(7px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    /* CITY HERO BANNER */
     .ch-banner {
       border-radius: 12px;
       padding: 26px 30px;
@@ -464,7 +458,6 @@
     .ch-info .ch-sub { font-size: 0.83rem; opacity: 0.78; margin: 3px 0 12px; }
     .ch-pills { display: flex; flex-wrap: wrap; gap: 7px; }
     .ch-pill { background: rgba(255,255,255,0.13); border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; padding: 4px 12px; font-size: 0.74rem; font-weight: 500; }
-    /* PRICE GUIDE */
     .price-guide { display: flex; gap: 12px; margin-bottom: 22px; flex-wrap: wrap; }
     .price-card {
       background: var(--white);
@@ -479,7 +472,6 @@
     .pc-lbl  { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 4px; }
     .pc-val  { font-size: 1.15rem; font-weight: 700; color: var(--navy); }
     .pc-note { font-size: 0.66rem; color: var(--lgray); margin-top: 1px; }
-    /* HOOD GRID */
     .hood-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(258px, 1fr)); gap: 14px; margin-bottom: 18px; }
     .hood-card {
       background: var(--white);
@@ -511,7 +503,6 @@
     .ht-navy   { background: #e0e7f5; color: var(--navy); }
     .ht-purple { background: #ede9fe; color: #5b21b6; }
     .ht-teal   { background: #ccfbf1; color: #0f766e; }
-    /* TIP BOX */
     .tip-box {
       background: var(--cyan-lt);
       border-left: 4px solid var(--cyan);
@@ -623,7 +614,6 @@
       letter-spacing: 0.2px;
     }
     footer strong { color: rgba(255,255,255,0.8); font-family: 'Rajdhani', sans-serif; font-size: 0.9rem; letter-spacing: 1px; }
-    /* ─── RESPONSIVE ──────────────────────── */
     @media (max-width: 620px) {
       .hero-title { font-size: 2.1rem; }
       nav { padding: 0 16px; }
@@ -635,7 +625,6 @@
   </style>
 </head>
 <body>
-<!-- ─── STICKY NAV ─────────────────────────── -->
 <nav>
   <div>
     <span class="nav-brand">AVELA<span class="accent">COM</span></span>
@@ -649,7 +638,6 @@
     <a href="#hotels">Hotels</a>
   </div>
 </nav>
-<!-- ─── HERO ──────────────────────────────── -->
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Avelacom Team Meeting · March 2026</div>
@@ -661,9 +649,6 @@
     </div>
   </div>
 </section>
-<!-- ════════════════════════════════════════
-     SECTION 1 – CITY COMPARISON
-════════════════════════════════════════ -->
 <section id="comparison">
   <div class="section-wrapper">
     <div class="section-header">
@@ -780,9 +765,6 @@
   </div>
 </section>
 <hr class="section-divider"/>
-<!-- ════════════════════════════════════════
-     SECTION 2 – NEIGHBORHOODS
-════════════════════════════════════════ -->
 <section id="neighborhoods">
   <div class="section-wrapper">
     <div class="section-header">
@@ -946,9 +928,6 @@
     </div>
   </div>
 </section>
-<!-- ════════════════════════════════════════
-     SECTION 3 – HOTEL OPTIONS
-════════════════════════════════════════ -->
 <hr class="section-divider"/>
 <section id="hotels">
   <div class="section-wrapper">
@@ -976,7 +955,7 @@
             <span class="hotel-rating">⭐ 8.2 / 10</span>
             <span class="hotel-price-est">~$280/night</span>
           </div>
-          <a href="https://novotelbrusselscitycentre.reservationstays.com/" target="_blank" class="book-btn">Book Direct →</a>
+          <a href="https://all.accor.com/booking/en/accor/hotel/2122?compositions=2&dateIn=2026-03-15&dateOut=2026-03-20&nights=5&hideWDR=true&accessibleRoom=false" target="_blank" class="book-btn">Book Direct →</a>
         </div>
         <div class="hotel-card featured">
           <div class="hotel-header">
@@ -1122,7 +1101,6 @@
     </div>
   </div>
 </section>
-<!-- ─── FOOTER ─────────────────────────────── -->
 <footer>
   <strong>AVELACOM</strong> &nbsp;·&nbsp; Europe Team Meeting 2026 &nbsp;·&nbsp;
   Travel data based on March 2026 estimates. Always verify current rates and availability.
